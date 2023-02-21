@@ -9,7 +9,7 @@ export const daysGenerator = (month: number, year: number): IDay[] => {
   const amountOfDaysinMonth = daysInMonth(month, year);
   for (let i = 1; i <= amountOfDaysinMonth; i++) {
     result.push({
-      id: i,
+      id: `${i}`,
       date: dayjs().date(i).format("D MMMM YYYY"),
       todos: [],
     });

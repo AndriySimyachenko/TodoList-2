@@ -5,7 +5,6 @@ import { todoSelector } from "./store/reducers/TodoListSlice";
 
 const App = () => {
   const { days } = useAppSelector(todoSelector);
-  console.log(days);
   return (
     <div className="App">
       <ul>

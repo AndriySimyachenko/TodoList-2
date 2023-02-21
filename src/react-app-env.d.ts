@@ -1,6 +1,12 @@
 /// <reference types="react-scripts" />
 interface IDay {
-  id: number;
+  id: string;
   date: string;
-  todos: any[];
+  todos: ITodo[];
+}
+
+interface ITodo {
+  id: string;
+  text: string;
+  isCompleted: boolean;
 }

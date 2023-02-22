@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Todos.scss";
 import { useAppDispatch } from "../../store/hooks";
 import {
   removeTodo,
@@ -22,11 +23,11 @@ export const Todo: React.FC<IProps> = ({ todo, dayId }) => {
     dispatch(toggleCompletedTodo({ dayId, todoId: todo.id }));
     setOpenModal(false);
   };
-  console.log(todo.isCompleted);
 
   return (
-    <div>
+    <>
       <li
+        className="todo"
         style={{ color: todo.isCompleted ? "green" : "red" }}
         onClick={() => setOpenModal(true)}
       >
@@ -37,10 +38,14 @@ export const Todo: React.FC<IProps> = ({ todo, dayId }) => {
       )}
       {openModal && (
         <div className="modal">
-          <button onClick={deleteTodoHandler}>Delete</button>
-          <button onClick={doneTodoHandler}>Done</button>
+          <button className="modal__button" onClick={deleteTodoHandler}>
+            Delete
+          </button>
+          <button className="modal__button" onClick={doneTodoHandler}>
+            Done
+          </button>
         </div>
       )}
-    </div>
+    </>
   );
 };

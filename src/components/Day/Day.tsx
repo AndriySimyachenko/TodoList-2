@@ -9,7 +9,7 @@ interface IProps {
 }
 
 export const Day: React.FC<IProps> = ({ day }) => {
-  const [openModal, setOpenModal] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [text, setText] = useState("");
   const dispatch = useAppDispatch();
 
@@ -21,34 +21,41 @@ export const Day: React.FC<IProps> = ({ day }) => {
     if (text.length > 2) {
       dispatch(addTodo({ dayId: day.id, text }));
       setText("");
-      setOpenModal(false);
+      setIsModalVisible(false);
     }
   };
+
+  const toggleModal = () => setIsModalVisible((prev) => !prev);
+
   return (
-    <div className="daysList">
-      <div className="dayHeader">
-        <li> {day.date}</li>
-        <span className="addButton" onClick={() => setOpenModal(true)}>
+    <div className="day days-list__day">
+      <div className="day__header">
+        <li className="day__title"> {day.date}</li>
+        <span className="day__addButton" onClick={toggleModal}>
           &#43;
         </span>
       </div>
-      <ul>
+      <ul className="todoList">
         {day.todos.map((todo: ITodo) => {
           return <Todo dayId={day.id} todo={todo} key={todo.id} />;
         })}
       </ul>
-      {openModal && (
-        <div className="background" onClick={() => setOpenModal(false)} />
+
+      {isModalVisible && (
+        <div className="background" onClick={() => setIsModalVisible(false)} />
       )}
-      {openModal && (
+      {isModalVisible && (
         <div className="modal">
           <input
+            className="modal__input"
             type="text"
             onChange={(e) => changeText(e)}
             value={text}
             placeholder="Add some task"
           />
-          <button onClick={addTaskHandler}>Add</button>
+          <button className="modal__button" onClick={addTaskHandler}>
+            Add
+          </button>
         </div>
       )}
     </div>

@@ -1,27 +1,58 @@
-.daysList {
-  list-style: none;
-  margin-bottom: 25px;
-  font-weight: bold;
+.day {
+  &__header {
+    display: flex;
+    column-gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    color: #fff;
+    list-style: none;
+    font-size: 24px;
+  }
+
+  &__addButton {
+    font-size: 24px;
+    color: #6cd1b1;
+  }
 }
 
-.addButton {
-  font-weight: bold;
-  align-items: center;
-  margin-left: 20px;
-  cursor: pointer;
+.days-list__day {
+  margin-bottom: 36px;
 }
 
-.dayHeader {
+.todoList {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
+  row-gap: 16px;
 }
+
 .modal {
   display: flex;
+  flex-direction: row;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  justify-content: space-between;
+  align-items: center;
+  height: 135px;
+  left: 0;
+  right: 0;
+  padding: 60px;
+  background-color: #288d8d;
+  border-radius: 32px;
+  bottom: 0;
   z-index: 3;
+
+  &__input {
+    height: 60px;
+    border-radius: 16px;
+  }
+
+  &__button {
+    height: 60px;
+    width: 60px;
+    border-radius: 16px;
+  }
 }
 
 .background {

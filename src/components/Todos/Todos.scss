@@ -11,3 +11,17 @@
   box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
 }
+
+.modal__deleteButton {
+  width: 120px;
+  height: 60px;
+  border-radius: 12px;
+  background-color: #d87d7d;
+}
+
+.modal__toggleButton {
+  width: 120px;
+  height: 60px;
+  border-radius: 12px;
+  background-color: #69e0bc;
+}

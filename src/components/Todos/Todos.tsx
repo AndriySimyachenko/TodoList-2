@@ -21,6 +21,7 @@ export const Todo: React.FC<IProps> = ({ todo, dayId }) => {
 
   const doneTodoHandler = () => {
     dispatch(toggleCompletedTodo({ dayId, todoId: todo.id }));
+
     setOpenModal(false);
   };
 
@@ -38,10 +39,10 @@ export const Todo: React.FC<IProps> = ({ todo, dayId }) => {
       )}
       {openModal && (
         <div className="modal">
-          <button className="modal__button" onClick={deleteTodoHandler}>
+          <button className="modal__deleteButton" onClick={deleteTodoHandler}>
             Delete
           </button>
-          <button className="modal__button" onClick={doneTodoHandler}>
+          <button className="modal__toggleButton" onClick={doneTodoHandler}>
             Done
           </button>
         </div>

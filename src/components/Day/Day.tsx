@@ -53,7 +53,7 @@ export const Day: React.FC<IProps> = ({ day }) => {
             value={text}
             placeholder="Add some task"
           />
-          <button className="modal__button" onClick={addTaskHandler}>
+          <button className="modal__addButton" onClick={addTaskHandler}>
             Add
           </button>
         </div>
